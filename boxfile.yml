@@ -8,12 +8,12 @@ deploy.config:
     - 'sed -i "s|user|$DATA_DB_USER|" /app/config.json'
     - 'sed -i "s|password|$DATA_DB_PASS|" /app/config.json'
   extra_steps:
-    - wget -O $APP_DIR/portal https://s3.amazonaws.com/tools.nanopack.io/portal/linux/amd64/portal
+    - wget -O $APP_DIR/portal https://s3.amazonaws.com/tools.microbox.cloud/portal/linux/amd64/portal
     - chmod 755 $APP_DIR/portal
     - cp /app/config.json $APP_DIR/config.json
 
 data.db:
-  image: nanobox/postgresql:9.5
+  image: mubox/postgresql:9.5
 
 web.proxy:
   ports:
